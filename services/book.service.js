@@ -22,7 +22,7 @@ function query(filterBy = {}) {
             }
 
             if (filterBy.maxPrice) {
-                books = books.filter(book => book.listPrice.ammount <= filterBy.maxPrice)
+                books = books.filter(book => book.listPrice.amount <= filterBy.maxPrice)
             }
             return books
         })

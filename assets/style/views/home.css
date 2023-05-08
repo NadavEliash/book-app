@@ -5,3 +5,7 @@
     align-items: center;
     justify-content: center;
 }
+
+.home h1 {
+    font-size: 5rem;
+}

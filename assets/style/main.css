@@ -9,6 +9,8 @@
 @import "base/forms.css";
 
 /* Views */
+@import "views/home.css";
+@import "views/book-details.css";
 
 /* Components */
 @import "cmps/app-header.css";
