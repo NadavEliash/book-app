@@ -1,11 +1,25 @@
-import {LongTxt} from '../cmps/long-txt.jsx'
+const { useState, useEffect } = React
+const { Link, useParams } = ReactRouterDOM
 
-export function BookDetails({ book, onBack }) {
+import { LongTxt } from '../cmps/long-txt.jsx'
+import { bookService } from '../services/book.service.js'
 
+export function BookDetails() {
+
+    const [book, setBook] = useState(null)
+    
+    let bookId = useParams().bookId
+
+    useEffect(() => {
+        bookService.get(bookId).then(setBook)
+    })
+
+    if (!book) return (
+        <div>loading...</div>
+    )
 
     const bookPrice = `${book.listPrice.amount} ${book.listPrice.currencyCode}`
     const bookDate = book.publishedDate < (new Date().getYear() + 1890) ? 'Vintage' : 'New'
-
 
     function setPriceColor() {
         if (book.listPrice.amount > 150) return 'red'
@@ -29,7 +43,7 @@ export function BookDetails({ book, onBack }) {
             <h2>{bookDate}</h2>
             <h2 className={setPriceColor()}>{bookPrice}</h2>
             <LongTxt txt={book.description} length={100} />
-            <button onClick={onBack}>Back</button>
+            <button><Link to="/book">Back</Link></button>
         </section>
     )
 }

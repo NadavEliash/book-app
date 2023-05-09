@@ -1,12 +1,23 @@
 .app-header {
     background-color: var(--clr1);
     color: var(--clr2bg-light);
-    
+}
+
+div .header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .app-nav {
     display: flex;
     gap: 15px;
+}
+
+.nav-link {
+    border-left: 2px solid white;
+    text-indent: 1em;
 }
 
 

@@ -5,6 +5,7 @@
 body {
   margin: 0;
   color: var(--gray3);
+  font-family: 'Edu VIC WA NT Beginner', cursive;
 }
 
 h1,

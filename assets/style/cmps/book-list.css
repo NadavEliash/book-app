@@ -13,3 +13,8 @@
     align-items: center;
     background-color: var(--clr1bg);
 }
+
+.book-li-btn {
+    display: flex;
+    flex-direction: row;
+}
