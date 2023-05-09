@@ -1,0 +1,21 @@
+.rating-container {
+    margin-left: 50%;
+    translate: -50%;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.star-rating img {
+    width: 30px;
+    margin: 0;
+
+}
+
+.rating-container p {
+    text-align: center;
+    text-indent: 50%;
+}

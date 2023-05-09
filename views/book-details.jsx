@@ -2,22 +2,23 @@ const { useState, useEffect } = React
 const { Link, useParams } = ReactRouterDOM
 
 import { LongTxt } from '../cmps/long-txt.jsx'
+import { AddReview } from '../cmps/add-review.jsx'
 import { bookService } from '../services/book.service.js'
 
 export function BookDetails() {
 
     const [book, setBook] = useState(null)
-    
-    let bookId = useParams().bookId
 
+    let bookId = useParams().bookId
     useEffect(() => {
         bookService.get(bookId).then(setBook)
-    })
+    }, [])
 
     if (!book) return (
         <div>loading...</div>
     )
-
+    
+    console.log(book)
     const bookPrice = `${book.listPrice.amount} ${book.listPrice.currencyCode}`
     const bookDate = book.publishedDate < (new Date().getYear() + 1890) ? 'Vintage' : 'New'
 
@@ -44,6 +45,7 @@ export function BookDetails() {
             <h2 className={setPriceColor()}>{bookPrice}</h2>
             <LongTxt txt={book.description} length={100} />
             <button><Link to="/book">Back</Link></button>
+            <AddReview bookId={book.id} />
         </section>
     )
 }
